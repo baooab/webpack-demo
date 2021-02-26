@@ -6,7 +6,8 @@ const commonConfig = merge([
 	{
 		entry: ['./src']
 	},
-	parts.page({ title: 'Demo' })
+	parts.loadSass(),
+	parts.page({ title: 'Demo' }),
 ])
 
 const productionConfig = merge([])
@@ -19,7 +20,6 @@ const developmentConfig = merge([
 ])
 
 const getConfig = (mode) => {
-	console.log('>>>>>> mode', mode)
 	switch(mode) {
 		case 'production':
 			return merge(commonConfig, productionConfig, { mode });

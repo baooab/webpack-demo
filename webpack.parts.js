@@ -3,6 +3,28 @@ const {
 	MiniHtmlWebpackPlugin
 } = require('mini-html-webpack-plugin')
 
+exports.loadCss = () => ({
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
+			}
+		]
+	}
+})
+
+exports.loadSass = () => ({
+	module: {
+		rules: [
+			{
+				test: /\.s[ac]ss$/,
+				use: ['style-loader', 'css-loader', 'sass-loader']
+			}
+		]
+	}
+})
+
 exports.devServer = () => ({
 	watch: true,
 	plugins: [
