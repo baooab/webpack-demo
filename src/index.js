@@ -1,5 +1,4 @@
 import comp from './component'
-import './main.scss'
+import './main.css'
 
 document.body.appendChild(comp())
-
