@@ -2,11 +2,13 @@ const { mode } = require('webpack-nano/argv')
 const { merge } = require('webpack-merge')
 const parts = require('./webpack.parts')
 
+const cssLoaders = [parts.tailwind()];
+
 const commonConfig = merge([
 	{
 		entry: ['./src']
 	},
-	parts.extractCss(),
+	parts.extractCss({ loaders: cssLoaders }),
 	parts.page({ title: 'Demo' }),
 ])
 
@@ -20,12 +22,12 @@ const developmentConfig = merge([
 ])
 
 const getConfig = (mode) => {
-	switch(mode) {
+	switch (mode) {
 		case 'production':
 			return merge(commonConfig, productionConfig, { mode });
 		case 'development':
 			return merge(commonConfig, developmentConfig, { mode })
-		default: 
+		default:
 			throw new Error(`Try to use an unknown mode. ${mode}`)
 	}
 }

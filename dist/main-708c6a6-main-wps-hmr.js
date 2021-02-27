@@ -8,14 +8,14 @@
  */
 self["webpackHotUpdatewebpack_demo"]("main",{
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/component.js":
+/*!**************************!*\
+  !*** ./src/component.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./component */ \"./src/component.js\");\n/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main.css */ \"./src/main.css\");\n\r\n\r\n\r\ndocument.body.appendChild((0,_component__WEBPACK_IMPORTED_MODULE_0__.default)())\r\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((text = 'Hello World') => {\r\n\tconst elem = document.createElement('div')\r\n\telem.className = \"rounded bg-red-100 border max-w-md m-4 p-4\";\r\n\telem.innerHTML = text\r\n\treturn elem\r\n});\r\n\n\n//# sourceURL=webpack://webpack-demo/./src/component.js?");
 
 /***/ })
 
@@ -25,7 +25,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /******/ 
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("55f3666e777fb22adadb")
+/******/ 		__webpack_require__.h = () => ("c52ac99f9e0c23590f77")
 /******/ 	})();
 /******/ 	
 /******/ }

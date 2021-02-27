@@ -47,10 +47,18 @@ exports.extractCss = ({ options = {}, loaders = [] } = {}) => {
 	}
 }
 
+exports.tailwind = () => ({
+	loader: "postcss-loader",
+	options: {
+		postcssOptions: { plugins: [require("tailwindcss")()] },
+	},
+});
+
 exports.devServer = () => ({
 	watch: true,
 	plugins: [
 		new WebpackPluginServe({
+			host: '127.0.0.1',
 			port: process.env.PORT || 8080,
 			static: './dist',
 			liveReload: true,
@@ -60,6 +68,6 @@ exports.devServer = () => ({
 })
 
 exports.page = ({ title }) => ({
-	plugins: [new MiniHtmlWebpackPlugin({ context: { title }})]
+	plugins: [new MiniHtmlWebpackPlugin({ context: { title } })]
 })
 
