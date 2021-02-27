@@ -1,1 +1,1 @@
-(()=>{"use strict";document.body.appendChild(((e="Hello World")=>{const d=document.createElement("div");return d.className="rounded bg-red-100 border max-w-md m-4 p-4",d.innerHTML=e,d})())})();
+!function(){"use strict";document.body.appendChild(((e="Hello World")=>{const d=document.createElement("div");return element.className="rounded bg-red-100 border max-w-md m-4 p-4",d.innerHTML=e,d})())}();
