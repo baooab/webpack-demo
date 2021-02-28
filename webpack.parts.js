@@ -11,7 +11,6 @@ const {
 	MiniHtmlWebpackPlugin
 } = require('mini-html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require("autoprefixer");
 
 exports.loadCss = () => ({
 	module: {
@@ -82,6 +81,57 @@ exports.eliminateUnusedCSS = () => ({
 	],
 });
 
+exports.loadImages = ({ limit } = {}) => ({
+	module: {
+		rules: [
+			{
+				test: /\.(png|jpg)$/,
+				type: 'asset',
+				parser: {
+					dataUrlCondition: {
+						maxSize: limit
+					}
+				}
+			}
+		]
+	}
+})
+
+exports.loadJs = () => ({
+	module: {
+		rules: [
+			{
+				test: /\.[jt]sx?$/,
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							exclude: /node_modules/,
+							presets: [
+								[
+									'@babel/preset-env',
+									{
+										modules: false,
+										// 	useBuiltIns: 'usage',
+										// 	corejs: {
+										// 		version: 3,
+										// 		proposals: true
+										// 	}
+									}
+								],
+								'@babel/preset-typescript'
+							]
+						}
+					}
+				]
+			}
+		]
+	},
+	resolve: {
+		extensions: ['.tsx', '.ts', 'jsx', '.js'],
+	}
+})
+
 exports.devServer = () => ({
 	watch: true,
 	plugins: [
@@ -98,4 +148,3 @@ exports.devServer = () => ({
 exports.page = ({ title }) => ({
 	plugins: [new MiniHtmlWebpackPlugin({ context: { title } })]
 })
-
